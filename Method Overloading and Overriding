@@ -1,0 +1,53 @@
+// Class demonstrating method overloading
+class MathOperations {
+    // Multiply two integers
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Multiply three integers (overloaded method)
+    public int multiply(int a, int b, int c) {
+        return a * b * c;
+    }
+}
+
+// Parent class demonstrating method overriding
+class Animal {
+    // Method to be overridden
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Subclass Dog overriding makeSound()
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks: Woof woof!");
+    }
+}
+
+// Subclass Cat overriding makeSound()
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows: Meow meow!");
+    }
+}
+
+// Main class to test method overloading and overriding
+public class Main {
+    public static void main(String[] args) {
+        // Testing method overloading
+        MathOperations mathOps = new MathOperations();
+        System.out.println("Multiply 2 numbers: " + mathOps.multiply(5, 3));
+        System.out.println("Multiply 3 numbers: " + mathOps.multiply(2, 3, 4));
+
+        // Testing method overriding and polymorphism
+        Animal myDog = new Dog(); // Upcasting
+        Animal myCat = new Cat(); // Upcasting
+
+        myDog.makeSound(); // Calls Dog's version
+        myCat.makeSound(); // Calls Cat's version
+    }
+}
